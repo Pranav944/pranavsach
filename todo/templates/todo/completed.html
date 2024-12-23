@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Completed!</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'todo/st.css' %}">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.18/dist/index.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Congratulations! 🎉</h1>
+        <p>You completed the task: <strong>{{ task.title }}</strong></p>
+        <p>You earned <strong>{{ task.points }}</strong> points!</p>
+        <canvas id="confetti"></canvas>
+        <a href="{% url 'index' %}" class="back-btn">Back to List</a>
+    </div>
+    <script>
+        const confettiSettings = { target: 'confetti' };
+        const confetti = new ConfettiGenerator(confettiSettings);
+        confetti.render();
+    </script>
+</body>
+</html>
